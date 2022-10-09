@@ -15,10 +15,14 @@ export class CreateAccountComponent implements OnInit {
     email:new FormControl('',[Validators.required]),
     password:new FormControl('',[Validators.required])
   });
+  renderer: any;
+  el: any;
   
   constructor(private stService:StudentServiceService) { }
 
   ngOnInit() {
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor','midnightblue');
+
   }
 
   signup(){

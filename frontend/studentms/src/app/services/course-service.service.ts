@@ -24,4 +24,12 @@ export class CourseServiceService {
     return this.http.get<CourseEntity[]>(this.url+"/getPagination/"+startNumber);
 
   }
+
+  getNotEnrolledCourses(stId){
+    return this.http.get<CourseEntity[]>(this.url+"/getNotEnrolledCourses/"+stId);
+  }
+
+  getCourses(){
+    return this.http.get<CourseEntity[]>(this.url+"/enrolledNonenrolled");
+  }
 }

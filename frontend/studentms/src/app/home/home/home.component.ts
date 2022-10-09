@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngAfterViewInit(){
-    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor','azure');
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor','midnightblue');
   }
 
 }

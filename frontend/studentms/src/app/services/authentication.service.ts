@@ -10,6 +10,7 @@ import { StudentEntity } from '../entity/StudentEntity';
 export class AuthenticationService {
 
   private url = Global.base_url+"/student";
+   st:StudentEntity;
 
   constructor(private http:HttpClient) { }
 

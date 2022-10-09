@@ -1,25 +1,24 @@
 package com.StudentManagementSystem.Controller;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.StudentManagementSystem.Service.StudentService;
 import com.StudentManagementSystem.dto.CourseDTO;
+import com.StudentManagementSystem.dto.StudentCourseDTO;
 import com.StudentManagementSystem.dto.StudentDTO;
-import com.StudentManagementSystem.entity.Course;
 import com.StudentManagementSystem.entity.Student;
 import com.StudentManagementSystem.utility.PasswordUtility;
 
@@ -93,7 +92,7 @@ public class StudentController {
 	
 	@GetMapping(value="/getAllCourses/{studentId}")
 	public List<CourseDTO> getAllCourses(@PathVariable("studentId") long studentId){
-		return this.stService.getAllCourses(studentId);
+		return this.stService.getAllCoursesStEnrolled(studentId);
 	}
 	
 	@GetMapping(value="/login/{email}/{password}")
@@ -104,4 +103,25 @@ public class StudentController {
 		
 		return st;
 	}
+	
+	@GetMapping(value="/getNotEnrolledCourses/{stId}")
+	public List<CourseDTO> getCoursesNotEnrolled(@PathVariable("stId") long stId){
+		return this.stService.getNotEnorlledCourses(stId);
+	}
+	
+	@PostMapping(value="/saveStCourse")
+	public boolean saveStCourse(@RequestBody StudentCourseDTO stCourse) {
+		return this.stService.saveStCourse(stCourse);
+	}
+	
+	@GetMapping(value="/getEnrolledCourses/{stId}")
+	public List<CourseDTO> getEnrolledCourses(@PathVariable("stId") long stId){
+		return this.stService.getEnrolledCourses(stId);
+	}
+	
+	@DeleteMapping(value="/removeStCourse/{stId}/{courseId}")
+	public Boolean removeCourseStudent(@PathVariable("stId") long stId,@PathVariable("courseId") long courseId) {
+		return this.stService.removeCourseStudent(stId,courseId);
+	}
+	
 }

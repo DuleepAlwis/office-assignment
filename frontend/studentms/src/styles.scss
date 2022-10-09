@@ -1,2 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.min.css"
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.login-bg-color {
+    background-color: midnightblue	;
+}
+
+.student-bg-color{
+    background-color:midnightblue;
+    overflow: hidden;
+    color:wheat
+}
+
+.admin-bg-color{
+    background-color:midnightblue;
+    overflow: hidden;
+    color:white
+}
+
+.admin-panel{
+    background-color:midnightblue;
+    overflow: hidden;
+    color:white
+}

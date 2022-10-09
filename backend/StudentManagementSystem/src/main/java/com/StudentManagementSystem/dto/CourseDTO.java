@@ -21,6 +21,7 @@ public class CourseDTO implements Serializable{
 		this.courseName = courseName;
 		this.description = description;
 		this.author = author;
+		
 	}
 
 
@@ -56,10 +57,15 @@ public class CourseDTO implements Serializable{
 		this.author = author;
 	}
 
+	
+	
+	
+
+
 	@Override
 	public String toString() {
 		return "CourseDTO [id=" + id + ", courseName=" + courseName + ", description=" + description + ", author="
-				+ author + "]";
+				+ author +"]";
 	}
 
 	

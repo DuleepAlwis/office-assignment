@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -15,9 +16,13 @@ export class LoginComponent implements OnInit {
     password:new FormControl('',[Validators.required])
   });
 
-  constructor(private authService:AuthenticationService,private router:Router) { }
+  
+  constructor( @Inject(DOCUMENT) private _document:Document,private authService:AuthenticationService,private router:Router) { }
 
   ngOnInit() {
+
+    this._document.body.classList.add('login-bg-color');
+
   }
 
   login(){
@@ -27,6 +32,9 @@ export class LoginComponent implements OnInit {
     this.authService.login(email,password).subscribe(
       res=>{
         if(res!=null){
+              this.authService.st = res;
+              localStorage.setItem("user",JSON.stringify(res));
+              
               this.router.navigateByUrl("/studenthome");
         }
       }

@@ -12,6 +12,11 @@ import { StudentServiceService } from './services/student-service.service';
 import { LoginComponent } from './student-login/login/login.component';
 import { CreateAccountComponent } from './signup/create-account/create-account.component';
 import { StudentHomeComponent } from './student-home/student-home/student-home.component';
+import { StudentHeaderComponent } from './student-header/student-header.component';
+import { EnrolledCoursesComponent } from './enrolled-courses/enrolled-courses.component';
+import { StudentenrolledcoursesComponent } from './studentenrolledcourses/studentenrolledcourses.component';
+import { AdminviewstudentComponent } from './adminviewstudent/adminviewstudent.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,12 @@ import { StudentHomeComponent } from './student-home/student-home/student-home.c
     AdminCourseModuleComponent,
     LoginComponent,
     CreateAccountComponent,
-    StudentHomeComponent
+    StudentHomeComponent,
+    StudentHeaderComponent,
+    EnrolledCoursesComponent,
+    StudentenrolledcoursesComponent,
+    AdminviewstudentComponent,
+    AdminHeaderComponent
   ],
   imports: [
     BrowserModule,

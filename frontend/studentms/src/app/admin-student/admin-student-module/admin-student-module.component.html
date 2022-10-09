@@ -1,3 +1,5 @@
+<app-admin-header></app-admin-header>
+
 <div class="row">
     <div class="col-md-2">
 
@@ -35,7 +37,7 @@
                 <td>#Id</td><td>Name</td><td>Email</td>
             </tr>
             <tr *ngFor="let st of students; index as i">
-                <td>{{st.id}}</td><td>{{st.name}}</td><td>{{st.email}}</td><td><button class="btn btn-secondary">View</button></td>
+                <td>{{st.id}}</td><td>{{st.name}}</td><td>{{st.email}}</td><td><button class="btn btn-secondary" (click)="viewStudentDetails(st.id)">View</button></td>
             </tr>
         </table>
         <nav aria-label="Page navigation example">

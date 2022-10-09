@@ -41,19 +41,25 @@ INSERT INTO course(id,courseName,CODE,description) VALUES(1,'Health science','C1
 SELECT * FROM student;
 SELECT * FROM course;
 SELECT * FROM st_course;
+DROP TABLE st_course;
 
 SELECT s.* FROM student s INNER JOIN st_course stc ON s.id = stc.studentId WHERE stc.courseId = 1;
+Select c.* from course c inner join st_course stc on c.id=stc.courseId where stc.studentId=1
+Select c.* from course c left join st_course stc on c.id=stc.courseId where stc.studentId NOT IN (15);
 DELETE FROM course WHERE id = 4
 #DROP database studentmsDB; 
 ALTER TABLE course ADD CONSTRAINT unique_code UNIQUE(CODE);
 
 INSERT INTO st_course(id,studentId,courseId) VALUES(1,1,1),(2,2,1),(3,3,3);
+INSERT INTO st_course(id,studentId,courseId) VALUES(4,15,1);
 
 ALTER TABLE st_course ADD COLUMN grade VARCHAR(10);
 ALTER TABLE student ADD COLUMN admissionNo VARCHAR(255);
 
 UPDATE student SET NAME = 'Kasun3' WHERE id = 3;
-
+Select c.* from course c inner join st_course stc on c.id=stc.courseId where stc.studentId not IN (15)
 SELECT * FROM student LIMIT 11,3
+
+#DELETE FROM st_course;
 
 

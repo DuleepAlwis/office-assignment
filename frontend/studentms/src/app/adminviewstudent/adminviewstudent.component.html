@@ -1,8 +1,8 @@
-<app-student-header></app-student-header>
+  <app-admin-header></app-admin-header>
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-8">
-       <h3>View all available courses</h3> 
+       <h3>View all enrolled courses</h3> 
        <div class="st_list">
         <table>
             <tr>
@@ -10,8 +10,7 @@
             </tr>
             <tr *ngFor="let cs of courses; index as i">
                 <td>{{cs.id}}</td><td>{{cs.courseName}}</td><td>{{cs.description}}</td><td>{{cs.author}}</td>
-                <td *ngIf="cs.enrolled">Already enrolled</td>
-                <td *ngIf="!cs.enrolled"><button class="btn btn-primary" (click)="saveStudentCourse(cs.id)">Enroll</button></td>
+                
             </tr>
         </table>
       <!--  <nav aria-label="Page navigation example">

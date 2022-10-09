@@ -5,4 +5,5 @@ export class CourseEntity{
     description:number;
     CODE:String;
     author:String;
+    enrolled:boolean;
 }
