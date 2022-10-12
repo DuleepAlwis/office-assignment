@@ -32,4 +32,16 @@ export class CourseServiceService {
   getCourses(){
     return this.http.get<CourseEntity[]>(this.url+"/enrolledNonenrolled");
   }
+
+  getCourseById(csId){
+    return this.http.get<CourseEntity>(this.url+"/getById/"+csId);
+  }
+
+  updateCourseInfo(course:CourseEntity){
+    return this.http.put<Boolean>(this.url+"/updateCourse",course);
+  }
+
+  deleteCourse(csId){
+    return this.http.delete<Boolean>(this.url+"/deleteCourse/"+csId);
+  }
 }

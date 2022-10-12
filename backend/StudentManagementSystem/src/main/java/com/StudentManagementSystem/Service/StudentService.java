@@ -11,6 +11,7 @@ import com.StudentManagementSystem.dto.StudentDTO;
 import com.StudentManagementSystem.entity.Course;
 import com.StudentManagementSystem.entity.Student;
 import com.StudentManagementSystem.mapper.StudentMapper;
+import com.StudentManagementSystem.utility.PasswordUtility;
 
 @Service
 public class StudentService {
@@ -27,11 +28,7 @@ public class StudentService {
 		return this.stMapper.insertStudent(st);
 	}
 
-	public Boolean updateStudent(Student st) {
-
-		return this.stMapper.updateStudent(st);
-		// System.out.println("Update student");
-	}
+	
 
 	public StudentDTO getById(long id) {
 		System.out.println("get students");
@@ -153,7 +150,7 @@ public class StudentService {
 			
 			
 			
-			if(found == false) {
+			if(found == false && cs.getDisplay()==1) {
 				CourseDTO csd = new CourseDTO();
 				csd.setAuthor(cs.getAuthor());
 				csd.setId(cs.getId());
@@ -196,5 +193,10 @@ public class StudentService {
 	public boolean removeCourseStudent(long stId,long courseId) {
 		
 		return this.stMapper.removeCourseStudent(stId,courseId);
+	}
+	
+	public boolean updateStudent(Student st) {
+		st.setPassword(PasswordUtility.getHashPassword(st.getPassword()));
+		return this.stMapper.updateStudent(st);
 	}
 }

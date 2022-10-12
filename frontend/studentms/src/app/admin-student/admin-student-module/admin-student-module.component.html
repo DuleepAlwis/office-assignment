@@ -37,7 +37,7 @@
                 <td>#Id</td><td>Name</td><td>Email</td>
             </tr>
             <tr *ngFor="let st of students; index as i">
-                <td>{{st.id}}</td><td>{{st.name}}</td><td>{{st.email}}</td><td><button class="btn btn-secondary" (click)="viewStudentDetails(st.id)">View</button></td>
+                <td>{{st.id}}</td><td>{{st.name}}</td><td>{{st.email}}</td><td><button class="btn btn-secondary" (click)="viewStudentDetails(st.id,st.name)">View</button></td>
             </tr>
         </table>
         <nav aria-label="Page navigation example">

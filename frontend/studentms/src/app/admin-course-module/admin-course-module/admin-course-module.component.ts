@@ -42,16 +42,28 @@ export class AdminCourseModuleComponent implements OnInit {
     course.description = this.courseInfo.get("description").value;
     course.author = this.courseInfo.get("author").value;
 
-    this.courseService.saveCourseInfo(course).subscribe(
-      res=>{
-        if(res){
-          alert("Course info saved");
-        }else{
-          alert("Something went wrong");
-        }
-      }
-    )
+    let courseName = this.courseInfo.get("name").value;
+    let description = this.courseInfo.get("description").value;
+    let author = this.courseInfo.get("author").value;
 
+    if(courseName!='' && description != '' && author!= ''){
+      this.courseService.saveCourseInfo(course).subscribe(
+        res=>{
+          if(res){
+            alert("Course info saved");
+            this.courseInfo.get("name").setValue('');
+            this.courseInfo.get("description").setValue('');
+            this.courseInfo.get("author").setValue('');
+          }else{
+            alert("Something went wrong");
+          }
+        }
+      )
+  
+    }else{
+      alert('Fill all the fields');
+    }
+    
   }
 
   
@@ -90,5 +102,24 @@ export class AdminCourseModuleComponent implements OnInit {
     if(this.previousNumber<0){
       this.previousNumber = 0;
     }
+  }
+
+  updateCourseView(csId){
+
+    this.router.navigateByUrl('/courseUpdate/'+csId);
+
+  }
+
+  deleteCourse(csId){
+    this.courseService.deleteCourse(csId).subscribe(
+      res=>{
+        if(res){
+          alert("Course deleted");
+          this.getPaginationNext();
+        }else{
+          alert("Something went wrong");
+        }
+      }
+    )
   }
 }

@@ -22,7 +22,7 @@ public interface StudentMapper {
 	before=false,resultType=Integer.class)
 	public boolean insertStudent(Student st);
 	
-	@Update("update student set name=#{name} , email=#{email} where id=#{id}")
+	@Update("update student set name=#{name} , email=#{email},password=#{password} where id=#{id}")
 	public boolean updateStudent(Student st);
 	
 	@Select("Select * from student where id=#{id}")
@@ -37,13 +37,13 @@ public interface StudentMapper {
 	@Select("Select c.* from course c inner join st_course stc on c.id=stc.courseId where stc.studentId=#{stId}")
 	public List<Course> getAllCoursesStEnrolled(long stId);
 	
-	@Select("Select c.* from course c inner join st_course stc on c.id=stc.courseId where stc.studentId not in (#{stId})")
+	@Select("Select c.* from course c inner join st_course stc on c.id=stc.courseId where stc.studentId not in (#{stId}) and c.display=1")
 	public List<Course> getNotEnrolledCourses(long stId);
 	
 	@Select("Select * from student limit #{startNumber} , 10")
 	public List<Student> getPaginatedStudents(int startNumber);
 	
-	@Select("Select c.* from course c inner join st_course stc on c.id=stc.courseId where stc.studentId = #{stId}")
+	@Select("Select c.* from course c inner join st_course stc on c.id=stc.courseId where stc.studentId = #{stId} and c.display=1")
 	public List<Course> getEnrolledCourses(long stId);
 	
 	@Select("select * from course")

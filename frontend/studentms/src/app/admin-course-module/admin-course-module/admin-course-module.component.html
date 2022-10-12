@@ -45,8 +45,8 @@
                 <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Author" formControlName="author">
             </div>
             
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="reset" class="btn btn-primary ml-5">Cancel</button>
+            <button type="submit" class="btn btn-primary" style="margin-right:23px;margin-top:7px">Submit</button>
+            <button type="reset" class="btn btn-primary ml-5" style="margin-left:23px;margin-top:7px">Cancel</button>
 
           </form>
         
@@ -65,7 +65,9 @@
                 <th>#Id</th><th>Name</th><th>Course description</th><th>Course Author</th>
             </tr>
             <tr *ngFor="let cs of courses; index as i">
-                <td>{{cs.id}}</td><td>{{cs.courseName}}</td><td>{{cs.description}}</td><td>{{cs.author}}</td><td><button class="btn btn-secondary">Update</button></td>
+                <td>{{cs.id}}</td><td>{{cs.courseName}}</td><td>{{cs.description}}</td><td>{{cs.author}}</td><td><button class="btn btn-secondary" (click)="updateCourseView(cs.id)">Update</button></td>
+                <td><button class="btn btn-secondary" (click)="deleteCourse(cs.id)">Remove</button></td>
+
             </tr>
         </table>
         <nav aria-label="Page navigation example">

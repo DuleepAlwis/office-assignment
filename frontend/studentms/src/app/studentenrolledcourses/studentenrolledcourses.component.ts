@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { CourseEntity } from '../entity/CourseEntity';
 import { StudentServiceService } from '../services/student-service.service';
 
@@ -11,7 +12,7 @@ export class StudentenrolledcoursesComponent implements OnInit {
 
   courses:CourseEntity[];
 
-  constructor(private stService:StudentServiceService) { }
+  constructor(private stService:StudentServiceService,private route:Router) { }
 
   ngOnInit() {
     this.getEnrolledCourses();
@@ -43,6 +44,10 @@ export class StudentenrolledcoursesComponent implements OnInit {
         }
       }
     )
+  }
+
+  viewCourseData(csId){
+    this.route.navigateByUrl('/studentviewcourse/'+csId);
   }
 
 }

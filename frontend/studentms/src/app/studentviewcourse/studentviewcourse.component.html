@@ -1,0 +1,15 @@
+<app-student-header></app-student-header>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+        <h3>Notes</h3>
+        <table>
+            <tr>
+                <td>File Id</td><td>File name</td>
+            </tr>
+            <tr *ngFor="let file of files; index as i">
+                <td>{{file.id}}</td><td>{{file.fileName}}</td><td><button (click)="downloadFile(file.id,file.fileName)">Download</button></td>
+            </tr>
+        </table>
+    </div>
+</div>

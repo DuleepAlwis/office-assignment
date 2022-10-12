@@ -59,6 +59,7 @@ public class StudentController {
 				stEntity.setEmail(st.getEmail());
 				stEntity.setId(st.getId());
 				stEntity.setName(st.getName());
+				stEntity.setPassword(st.getPassword());
 				if( this.stService.updateStudent(stEntity)) {
 					return st;
 				}

@@ -30,6 +30,10 @@ export class StudentServiceService {
     return this.http.post<Boolean>(this.url+"/saveStCourse",stCourse);
   }
 
+  updateStInfo(st:StudentEntity){
+    return this.http.put<StudentEntity>(this.url+'/updateStudent',st);
+  }
+
   getNotEnrolledCourses(stId){
     return this.http.get<CourseEntity[]>(this.url+"/getNotEnrolledCourses/"+stId);
   }

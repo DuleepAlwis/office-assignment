@@ -1,0 +1,29 @@
+<app-student-header></app-student-header>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h3>Edit Student info</h3>
+        <form [formGroup]="studentInfo" (ngSubmit)="saveStudentInfo()">
+            <!--<div class="form-group">
+              <label for="exampleInputEmail1">Course Code</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Code" formControlName="code">
+            </div>-->
+            <div class="form-group">
+              <label for="exampleInputPassword1">Student Name</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name" formControlName="name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Student email</label>
+                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="email" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password" formControlName="password">
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="margin:5px 5px">Submit</button>
+
+          </form>
+        
+    </div>
+</div>

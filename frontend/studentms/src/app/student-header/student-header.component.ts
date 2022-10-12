@@ -20,4 +20,8 @@ export class StudentHeaderComponent implements OnInit {
     localStorage.clear();
     this.route.navigateByUrl("/studentms");
   }
+
+  studentUpdate(){
+    this.route.navigateByUrl('/studentupdate')
+  }
 }

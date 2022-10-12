@@ -11,6 +11,7 @@ public class Course implements Serializable {
 	private String courseName;
 	private String description;
 	private String author;
+	private int display;
 	
 	public Course() {
 		super();
@@ -18,12 +19,13 @@ public class Course implements Serializable {
 	}
 
 	
-	public Course(long id, String courseName, String description, String author) {
+	public Course(long id, String courseName, String description, String author,int display) {
 		super();
 		this.id = id;
 		this.courseName = courseName;
 		this.description = description;
 		this.author = author;
+		this.display = display;
 	}
 
 
@@ -58,11 +60,23 @@ public class Course implements Serializable {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
+	
+	
+
+	public int getDisplay() {
+		return display;
+	}
+
+
+	public void setDisplay(int display) {
+		this.display = display;
+	}
+
 
 	@Override
 	public String toString() {
 		return "CourseDTO [id=" + id + ", courseName=" + courseName + ", description=" + description + ", author="
-				+ author + "]";
+				+ author + ",display="+display+"]";
 	}
 	
 	

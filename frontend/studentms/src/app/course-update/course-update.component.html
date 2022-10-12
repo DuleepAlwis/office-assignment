@@ -1,0 +1,63 @@
+
+<app-admin-header></app-admin-header>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h3>Edit course info</h3>
+        <form [formGroup]="courseInfo" (ngSubmit)="saveCourseInfo()">
+            <!--<div class="form-group">
+              <label for="exampleInputEmail1">Course Code</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Code" formControlName="code">
+            </div>-->
+            <div class="form-group">
+              <label for="exampleInputPassword1">Course Name</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Course Name" formControlName="name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Course Description</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Description" formControlName="description">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Course author</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Author" formControlName="author">
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="margin:5px 5px">Submit</button>
+
+          </form>
+        
+    </div>
+</div>
+
+<div class="row" style="margin-top:25px">
+    <div class="col-md-2"></div>
+    <div class="col-4">
+        <label class="btn btn-default p-0">
+            <input type="file" (change)="selectFile($event)"/>
+        </label>
+    </div>
+
+    <div class="col-2" style="color:white">
+        <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
+            Upload file
+        </button>
+    </div>
+</div>
+
+<div *ngIf="message" class="alert alert-success" role="alert">{{ message }}</div>
+<div *ngIf="errorMsg" class="alert alert-danger" role="alert">{{ errorMsg }}</div>
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+        <table>
+            <tr>
+                <td>File Id</td><td>File name</td>
+            </tr>
+            <tr *ngFor="let file of files; index as i">
+                <td>{{file.id}}</td><td>{{file.fileName}}</td><td><button (click)="downloadFile(file.id,file.fileName)">Download</button></td>
+                <td><button (click)="removeFile(file.id)">Remove</button></td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -13,12 +13,13 @@ export class AdminviewstudentComponent implements OnInit {
   courses:CourseEntity[];
 
   constructor(private stService:StudentServiceService,private actRoute:ActivatedRoute) { }
-
+stName;
   ngOnInit() {
-    this.getEnrolledCourses();
     this.actRoute.paramMap.subscribe(
       params=>{
-        let stId = params.get('id');
+        let stId = params.get('stId');
+         this.stName = params.get('stName');
+
         this.getEnrolledCourses(stId);
       }
     )

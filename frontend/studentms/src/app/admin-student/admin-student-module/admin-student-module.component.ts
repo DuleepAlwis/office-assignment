@@ -39,9 +39,9 @@ export class AdminStudentModuleComponent implements OnInit {
     this.startNumber = this.startNumber + 10;
   }
 
-  viewStudentDetails(stId){
+  viewStudentDetails(stId,stName){
   
-    this.route.navigateByUrl('/admin-view-student/'+stId);
+    this.route.navigateByUrl('/admin-view-student/'+stId+'/'+stName);
   }
   
 

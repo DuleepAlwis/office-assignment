@@ -17,6 +17,9 @@ import { EnrolledCoursesComponent } from './enrolled-courses/enrolled-courses.co
 import { StudentenrolledcoursesComponent } from './studentenrolledcourses/studentenrolledcourses.component';
 import { AdminviewstudentComponent } from './adminviewstudent/adminviewstudent.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { CourseUpdateComponent } from './course-update/course-update.component';
+import { StudentviewcourseComponent } from './studentviewcourse/studentviewcourse.component';
+import { StudentupdateComponent } from './studentupdate/studentupdate.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
     EnrolledCoursesComponent,
     StudentenrolledcoursesComponent,
     AdminviewstudentComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
+    CourseUpdateComponent,
+    StudentviewcourseComponent,
+    StudentupdateComponent
   ],
   imports: [
     BrowserModule,

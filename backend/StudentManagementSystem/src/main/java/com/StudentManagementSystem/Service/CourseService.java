@@ -89,4 +89,11 @@ public class CourseService {
 		
 		return courses;
 	}
+	
+	public boolean deleteCourse(long csId) {
+		
+		this.courseMapper.deleteCoursefromStCourse(csId);
+		return this.courseMapper.deleteCourse(csId);
+		
+	}
 }

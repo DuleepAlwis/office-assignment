@@ -1,12 +1,11 @@
 package com.StudentManagementSystem.Controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.StudentManagementSystem.Service.CourseService;
 import com.StudentManagementSystem.dto.CourseDTO;
-import com.StudentManagementSystem.dto.StudentDTO;
 import com.StudentManagementSystem.entity.Course;
 import com.StudentManagementSystem.entity.Student;
 
@@ -78,12 +76,17 @@ public class CourseController {
 		return this.courseService.getAllStudents(courseId);
 	}
 	
-	@GetMapping(value="getPagination/{startNumber}")
+	@GetMapping(value="/getPagination/{startNumber}")
 	public List<CourseDTO> getPagination(@PathVariable int startNumber){
 		
 		if(startNumber>=0) {
 			return this.courseService.getPaginatedCourses(startNumber);
 		}
 		return null;
+	}
+	
+	@DeleteMapping(value="/deleteCourse/{csId}")
+	public boolean deleteCourse(@PathVariable("csId") long csId) {
+		return this.courseService.deleteCourse(csId);
 	}
 }

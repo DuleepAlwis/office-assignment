@@ -11,6 +11,8 @@
             <tr *ngFor="let cs of courses; index as i">
                 <td>{{cs.id}}</td><td>{{cs.courseName}}</td><td>{{cs.description}}</td><td>{{cs.author}}</td>
                 <td><button class="btn btn-primary" (click)="removeCourse(cs.id)">Leave</button></td>
+                <td><button class="btn btn-primary" (click)="viewCourseData(cs.id)">View</button></td>
+
             </tr>
         </table>
       <!--  <nav aria-label="Page navigation example">

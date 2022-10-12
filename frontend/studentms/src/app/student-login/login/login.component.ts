@@ -29,16 +29,21 @@ export class LoginComponent implements OnInit {
     console.log("Hello");
     let email = this.loginInfo.get("email").value;
     let password = this.loginInfo.get("password").value;
-    this.authService.login(email,password).subscribe(
-      res=>{
-        if(res!=null){
-              this.authService.st = res;
-              localStorage.setItem("user",JSON.stringify(res));
-              
-              this.router.navigateByUrl("/studenthome");
+    if(email!=null && email != '' && password != null && password!=''){
+      this.authService.login(email,password).subscribe(
+        res=>{
+          if(res!=null){
+                this.authService.st = res;
+                localStorage.setItem("user",JSON.stringify(res));
+                
+                this.router.navigateByUrl("/studenthome");
+          }
         }
-      }
-    )
+      )
+    }else{
+      alert('Fill the fields');
+    }
+    
   }
 
 }
