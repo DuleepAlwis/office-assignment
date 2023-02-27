@@ -97,6 +97,8 @@ export class CourseUpdateComponent implements OnInit {
               console.log(Math.round(100*event.loaded/event.total));
               if(event){
                 alert("File Upload success");
+                this.getAllFiles();
+
               }
             }else if(event instanceof HttpResponse){
               this.message = event.body.responseMessage;
@@ -115,7 +117,6 @@ export class CourseUpdateComponent implements OnInit {
         )
 
       }
-      this.getAllFiles();
 
       this.selectedFiles = undefined;
     }

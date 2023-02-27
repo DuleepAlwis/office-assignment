@@ -111,15 +111,19 @@ export class AdminCourseModuleComponent implements OnInit {
   }
 
   deleteCourse(csId){
-    this.courseService.deleteCourse(csId).subscribe(
-      res=>{
-        if(res){
-          alert("Course deleted");
-          this.getPaginationNext();
-        }else{
-          alert("Something went wrong");
+
+    if(confirm('Do you want to delete the course?')){
+      this.courseService.deleteCourse(csId).subscribe(
+        res=>{
+          if(res){
+            alert("Course deleted");
+            this.getPaginationNext();
+          }else{
+            alert("Something went wrong");
+          }
         }
-      }
-    )
+      )
+    }
+   
   }
 }
